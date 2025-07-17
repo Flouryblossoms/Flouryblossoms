@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flouryblossomss </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fffaf5, #ffeadd);
+            color: #4b3b31;
+            overflow-x: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 240, 230, 0.8);
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        nav h1 {
+            font-size: 1.5rem;
+            color: #a0522d;
+            cursor: pointer;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #4b3b31;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #d97d54;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>flouryblossoms</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#pastries">Pastries</a></li>
+            <li><a href="#cakes">Cakes</a></li>
+        </ul>
+    </nav>
+
+    <header class="fade-in" style="text-align:center; padding: 4rem 1rem;">
+        <h1>flouryblossoms</h1>
+        <p>Handmade Cookies, Pastries, and Cakes with Heart</p>
+    </header>
+
+    <section class="about fade-in" id="about">
+        <img src="" alt="Donation message" class="about-img">
+        <div class="about-text">
+            <h2>Giving Back with Every Bake</h2>
+            <p>
+                50% of the profits from our bakes are donated to TOUCH Community Services' fundraisers, blending the love for baking with giving back. Thank you for supporting our cause!
+            </p>
+        </div>
+    </section>
+
+    <main>
+        <section class="product fade-in" id="cookies">
+            <h2>Cookies</h2>
+            <img src="https://via.placeholder.com/400x250?text=Cookies" alt="Cookies">
+            <p>Freshly baked chocolate chip, oatmeal, and butter cookies to bring warmth to your day.</p>
+            <button onclick="order('Cookies')">Order Now</button>
+        </section>
+
+        <section class="product fade-in" id="pastries">
+            <h2>Pastries</h2>
+            <img src="https://via.placeholder.com/400x250?text=Pastries" alt="Pastries">
+            <p>Flaky croissants, danishes, and local-inspired pastries freshly made every morning.</p>
+            <button onclick="order('Pastries')">Order Now</button>
+        </section>
+
+        <section class="product fade-in" id="cakes">
+            <h2>Cakes</h2>
+            <img src="https://via.placeholder.com/400x250?text=Cakes" alt="Cakes">
+            <p>Celebrate with soft, moist cakes made with quality ingredients, perfect for family gatherings.</p>
+            <button onclick="order('Cakes')">Order Now</button>
+        </section>
+    </main>
+
+    <footer class="fade-in">
+        <p>&copy; flouryblossoms• Baked with Heart in Singapore</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        function order(item) {
+            alert(`Thank you for ordering ${item}! We will contact you shortly.`);
+        }
+    </script>
+</body>
+</html>
